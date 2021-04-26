@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Registration </title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" required>
+          </div>
+          <div class="check-box">
+            <input type="checkbox" name="usertype" id="worker" value="worker">
+            <label for="worker">Worker</label>
+          </div>
+          <div class="select-service" id="select-service">
+            <span class="details">Select Your Primary Service</span>
+              <select id="service" name="service">
+                <option value="cleaning">Cleaning</option>
+                <option value="cooking">Cooking</option>
+                <option value="moving">Moving</option>
+                <option value="babysitting">Babysitting</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="fourniture assembly">Fourniture Assembly</option>
+                <option value="TV and electronics">TV and Electronics</option>
+                <option value="painting">Painting</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="electrical">Electrical</option>
+              </select>
+            
+            </span>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-3">
+          <input type="radio" name="gender" id="dot-4">
+          <input type="radio" name="gender" id="dot-5">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-4">
+            <span class="dot four"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-5">
+            <span class="dot five"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
