@@ -10,35 +10,50 @@
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="#">
+      <form action="ajoutWorker.php" method="post">
+          <?php
+          session_start();
+          if(isset($_SESSION['wrongconfirmation'])){?>
+              <div class="container1" style="color: red">
+                  <?php echo $_SESSION['wrongconfirmation']; ?>
+              </div>
+              <?php
+              unset($_SESSION['wrongconfirmation']);
+          }
+          ?>
+          <?php
+          if(isset($_SESSION['exist'])){?>
+              <div class="container1" style="color: red">
+                  <?php echo $_SESSION['exist']; ?>
+              </div>
+              <?php
+              unset($_SESSION['exist']);
+          }
+          ?>
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" placeholder="Enter your name" name="fullname" required>
           </div>
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
+            <input type="text" placeholder="Enter your username" name="username" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="text" placeholder="Enter your email" name="email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <input type="text" placeholder="Enter your number" name="phone" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
+            <input type="password" placeholder="Enter your password" name="password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" required>
-          </div>
-          <div class="check-box">
-            <input type="checkbox" name="usertype" id="worker" value="worker">
-            <label for="worker">Worker</label>
+            <input type="password" placeholder="Confirm your password" name="confirmpassword" required>
           </div>
           <div class="select-service" id="select-service">
             <span class="details">Select Your Primary Service</span>
@@ -47,7 +62,8 @@
                 <option value="cooking">Cooking</option>
                 <option value="moving">Moving</option>
                 <option value="babysitting">Babysitting</option>
-                <option value="fourniture assembly">Furniture Assembly</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="fourniture assembly">Fourniture Assembly</option>
                 <option value="TV and electronics">TV and Electronics</option>
                 <option value="painting">Painting</option>
                 <option value="plumbing">Plumbing</option>
@@ -57,32 +73,22 @@
             </span>
           </div>
         </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-3">
-          <input type="radio" name="gender" id="dot-4">
-          <input type="radio" name="gender" id="dot-5">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-4">
-            <span class="dot four"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-5">
-            <span class="dot five"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
+
+
+        <div class="select-service" >
+          <span class="details">Select Your Gender</span>
+          <select  name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          </span>
         </div>
+
         <div class="button">
           <input type="submit" value="Register">
         </div>
       </form>
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
