@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="post.css">
 
-    <title>Document</title>
+    <title>Find Service</title>
 </head>
 <body>
 <div class="container mt-4">
