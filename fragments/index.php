@@ -1,4 +1,4 @@
-<?php include_once "fragments/affichagePosts.php"?>
+<?php include_once "autoload.php"?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="post.css">
 
-    <title>Find Service</title>
+    <title>Document</title>
 </head>
 <body>
 <div class="container mt-4">
@@ -65,11 +65,13 @@
                     </ul>
 
                 </div>
+               
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade" id="pills-Cleaning" role="tabpanel" aria-labelledby="pills-Cleaning-tab">
                         <?php
 
-                        afficher("Cleaning");
+   
+                        afficher("cleaning");
                         ?>
 
 
@@ -94,7 +96,8 @@
                     <div class="tab-pane fade" id="pills-FurnitureAssembly" role="tabpanel"
                          aria-labelledby="pills-FurnitureAssembly-tab">
                         <?php
-                        afficher("FurnitureAssembly");
+                        afficher("fourniture assembly");
+
                         ?>
                     </div>
                     <div class="tab-pane fade" id="pills-TVandElectronics" role="tabpanel"
@@ -128,6 +131,5 @@
 </div>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
 </html>

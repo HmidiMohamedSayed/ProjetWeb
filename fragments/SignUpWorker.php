@@ -55,6 +55,10 @@
             <span class="details">Confirm Password</span>
             <input type="password" placeholder="Confirm your password" name="confirmpassword" required>
           </div>
+          <div class="input-box">
+            <span class="details">Date of Birth:</span>
+            <input type="date" placeholder="dd/mm/yyyy" name="birthdate" required>
+          </div>
           <div class="select-service" id="select-service">
             <span class="details">Select Your Primary Service</span>
               <select id="service" name="service">

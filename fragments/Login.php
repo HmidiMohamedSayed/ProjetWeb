@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="logincss.css">
-<script src="loginjs.js"></script>
+<link rel="stylesheet" href="Login.css">
+<script src="Login.js"></script>
 </head>
 <body>
 
@@ -10,7 +10,7 @@
         <div class="container">
             <h1>Login </h1>
             
-            <form class="form" action="log.php" method="post">
+            <form class="form" action="Actionlogin.php" method="post">
                 <?php
                 session_start();
                 if(isset($_SESSION['notfoundusername'])){?>
@@ -40,6 +40,6 @@
             </form>
         </div>
     </div>
-<script src="loginjs.js"></script>
+<script src="Login.js"></script>
 </body>
 </html>

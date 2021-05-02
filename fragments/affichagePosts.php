@@ -5,13 +5,13 @@ include_once 'autoload.php';
 
 $bdd = ConnexionBD::getInstance();
 
-$repository = new Repository("posts");
+
 
 
 function afficher($profession)
 {
-    global $repository;
-    $posts = $repository->findByProfession($profession);
+    $repository = new Repository("posts");
+    $posts = $repository->findByOccupation($profession);
 
     foreach ($posts as $post) {
         ?>

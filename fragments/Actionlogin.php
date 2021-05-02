@@ -1,11 +1,12 @@
 <?php
 session_start();
 include_once 'autoload.php';
-$workerrepository=new WorkerRepository();
-$clientrepository=new ClientRepository();
+$repow=new Repository('worker');
+$repoc=new Repository('client');
 $username=$_POST['username'];
-$worker=$workerrepository->findByUsername($username);
-$client=$clientrepository->findByUsername($username);
+$_SESSION['username']=$username;
+$worker=$repow->findByUsername($username);
+$client=$repoc->findByUsername($username);
 if($worker==null) {
     if ($client==null){
         $_SESSION['notfoundusername']="Username Not Found Please Verify Your Credentials";
@@ -24,7 +25,8 @@ if($worker==null) {
             header("location:Login.php");
         }
         if($bool==true){
-            echo "Login Succeded";
+            
+            header("location:index.php");
         }
 
     }
@@ -44,6 +46,6 @@ else{
         header("location:Login.php");
     }
     if($bool==true){
-        echo "Login Succeded";
+        header('location:ProfileWorker.php');
     }
 }

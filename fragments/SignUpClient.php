@@ -46,8 +46,12 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Phone Number</span>
-                    <input type="text" placeholder="Enter your number[8]" name="phone" required>
+                    <input type="text" placeholder="Enter your number[8]" name="phonenumber" required>
                 </div>
+                <div class="input-box">
+              <span class="details">Date of Birth:</span>
+               <input type="date" placeholder="dd/mm/yyyy" name="birthdate" required>
+               </div>
                 <div class="input-box">
                     <span class="details">Password</span>
                     <input type="password" placeholder="Enter your password" name="password" required>
