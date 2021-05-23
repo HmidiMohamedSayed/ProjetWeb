@@ -3,7 +3,7 @@
 
 class ConnexionBD
 {
-    private static $_dbname = "gl219";
+    private static $_dbname = "dbproject";
     private static $_user = "root";
     private static $_pwd = "";
     private static $_host = "localhost";

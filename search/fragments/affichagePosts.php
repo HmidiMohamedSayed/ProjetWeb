@@ -1,19 +1,37 @@
 <?php
 
-include_once 'autoload.php';
+/*needed to submit a new comment*/
+session_start();
 
+//$username = $_POST['username'];
+$username = "ztothelz";
+
+/*--------------------------------*/
+
+
+include_once 'autoload.php';
 
 $bdd = ConnexionBD::getInstance();
 
-$repository = new Repository("posts");
+$repository1 = new Repository("posts");
 
 
-function afficher($profession)
+//$repository3 = new Repository("worker");
+
+function afficher($category)
 {
-    global $repository;
-    $posts = $repository->findByProfession($profession);
+    global $repository1;
+//    global $repository3;
 
-    foreach ($posts as $post) {
+
+    $posts = $repository1->findByCategory($category);
+
+
+    foreach ($posts
+
+             as $post) {
+//  $worker = $repository3->findByUsername($post->username);
+
         ?>
 
         <div class="container-fluid gedf-wrapper">
@@ -30,8 +48,8 @@ function afficher($profession)
                                     </div>
                                     <div class="ml-2">
                                         <div class="h5 m-0"><a
-                                                    href="#"><?= "@" . $post->username ?></a></div>
-                                        <div class="h7 text-muted"><?= $post->fullname ?></div>
+                                                    href="#"><?= "@" . $post->worker_username ?></a></div>
+                                        <div class="h7 text-muted"><?= $post->worker_fullname ?></div>
                                     </div>
                                 </div>
                                 <div>
@@ -53,7 +71,8 @@ function afficher($profession)
                         </div>
                         <div class="card-body">
                             <div class="text-muted h7 mb-2"><i class="fa fa-clock-o"></i><?= $post->date ?></div>
-                            <div class="text-muted h7 mb-2"><i class="fa fa-map-marker" aria-hidden="true"></i><?= $post->location ?></div>
+                            <div class="text-muted h7 mb-2"><i class="fa fa-map-marker"
+                                                               aria-hidden="true"></i><?= $post->location ?></div>
 
 
                             <p class="card-text">
@@ -61,11 +80,14 @@ function afficher($profession)
                             </p>
                         </div>
 
+                        <div class="card-footer">
+                            <a href="#" class="card-link collapsed"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                            <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
+                                        class="fa fa-commenting-o"></i> Show comments</a>
+                        </div>
                     </div>
-                    <!-- Post /////-->
-
-
                 </div>
+                <!--- \\\\\\\Post-->
             </div>
         </div>
 
@@ -75,4 +97,6 @@ function afficher($profession)
 
 }
 
+
 ?>
+

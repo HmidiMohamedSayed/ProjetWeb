@@ -1,4 +1,7 @@
 <?php include_once "fragments/affichagePosts.php"?>
+
+<!doctype html>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,8 +12,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="post.css">
 
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <title>Find Service</title>
 </head>
 <body>
@@ -72,7 +78,6 @@
                         afficher("Cleaning");
                         ?>
 
-
                     </div>
                     <div class="tab-pane fade" id="pills-Cooking" role="tabpanel" aria-labelledby="pills-Cooking-tab">
                         <?php
@@ -126,8 +131,7 @@
         </div>
     </div>
 </div>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
