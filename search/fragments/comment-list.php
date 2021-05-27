@@ -1,7 +1,8 @@
 <?php
-require_once ("db.php");
-
-$sql = "SELECT * FROM tbl_comment ORDER BY  comment_id asc";
+session_start();
+$post_id = $_GET['post_id'];
+$conn = mysqli_connect("localhost","root","","dbproject");
+$sql = "SELECT * FROM comments where post_id='$post_id' ";
 
 $result = mysqli_query($conn, $sql);
 $record_set = array();

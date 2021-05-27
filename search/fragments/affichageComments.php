@@ -31,7 +31,7 @@ function afficherComments($postid)
     } ?>
     <!-- add comment -->
     <div class="add_comment">
-        <form action="../comment-add.php?post_id=<?=$postid?>" method="post">
+        <form action="comment-add.php?post_id=<?=$postid?>" method="post">
             <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
                                                                 src="https://i.imgur.com/RpzrMR2.jpg"
                                                                 width="40"><textarea

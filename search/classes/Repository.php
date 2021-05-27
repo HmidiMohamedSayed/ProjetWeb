@@ -1,5 +1,5 @@
 <?php
-include_once 'autoload.php';
+include_once 'fragments/autoload.php';
 
 class Repository
 {
@@ -29,9 +29,15 @@ class Repository
         $response->execute([$id]);
         return $response->fetch(PDO::FETCH_OBJ);
     }
+    public function findByPostId($id) {
+        $request = "select * from ".$this->tableName1 ." where post_id = ?";
+        $response =$this->bd->prepare($request);
+        $response->execute([$id]);
+        return $response->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function findByCategory($profession) {
-        $request = "select * from ".$this->tableName1 ." where category = ?";
+        $request = "select * from ".$this->tableName1 ." where profession = ?";
         $response =$this->bd->prepare($request);
         $response->execute([$profession]);
         return $response->fetchAll(PDO::FETCH_OBJ);
@@ -57,6 +63,14 @@ class Repository
         $response->execute([$username]);
         return $response->fetch(PDO::FETCH_OBJ);
     }
+
+    public function findAllByUsername($username)
+    {
+        $request ="SELECT * FROM ".$this->tableName1 ."  WHERE username = ? ";
+        $response =$this->bd->prepare($request);
+        $response->execute([$username]);
+        return $response->fetchAll(PDO::FETCH_OBJ);
+    }
     //at
     public function insertComment($post_id,$username,$comment_text){
 
@@ -71,5 +85,10 @@ class Repository
         return $response->fetch(PDO::FETCH_OBJ);
     }
     //at
+    public function addSavedPost($post_id,$username,$comment_text){
 
+        $sql = "INSERT INTO comments (post_id, username, body, created_at) VALUES (". $post_id .", " . $username . ", '$comment_text', now()";
+        return mysqli_query($this->bd, $sql);
+
+    }
 }
