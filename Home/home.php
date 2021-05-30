@@ -23,9 +23,9 @@
             <li><a href="#" >About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Write a review</a></li>
-           <li> <a href="../authentification/CreateAccount.php"class="button"> Sign Up</a></li>
-           <li> <a href="../authentification/Login.php" class="button"> Login</a></li>
-         
+           <li> <a href="../fragments/CreateAccount.php"class="button"> Sign Up</a></li>
+           <li> <a href="../fragments/Login.php" class="button"> Login</a></li>
+
          </ul>
        </nav>
 <!-- logo -->
