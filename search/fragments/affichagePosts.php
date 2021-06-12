@@ -78,7 +78,6 @@ function afficher($category)
                         </div>
 
                         <div class="card-footer">
-                            <a href="#" class="card-link collapsed"><i class="fa fa-thumbs-o-up"></i> Like</a>
                             <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
                         </div>
@@ -160,7 +159,6 @@ function afficherSavedPosts($username)
                         </div>
 
                         <div class="card-footer">
-                            <a href="#" class="card-link collapsed"><i class="fa fa-thumbs-o-up"></i> Like</a>
                             <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
                         </div>

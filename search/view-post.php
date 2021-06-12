@@ -1,58 +1,50 @@
 <?php
 
 include_once 'fragments/autoload.php';
-
+include('server.php');
 session_start();
 $_SESSION['username']="alaeddine";
-$username=$_SESSION['username'];
+
 
 if (isset($_GET['post_id'])) {
 
     $post_id = $_GET['post_id'];
 
     $connect = ConnexionBD::getInstance();
-    $repository = new Repository("posts");
+
     $repository2 = new Repository("worker");
-    $post_data = $repository->findById($post_id);
-    $worker = $repository2->findByUsername($post_data->username);
+    $post_data = getPostData($post_id);
+    $worker = $repository2->findByUsername($post_data['username']);
+
 } else {
 
     header("Location: index.php");
 
 }
 
+$post_id = $_GET['post_id'];
 ?>
 
 <!doctype html>
 
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>post by <?= $post_data->username ?> details</title>
-
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>post by <?= $post_data['username'] ?> details</title>
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animated.css">
 
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-          crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-          crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 </head>
 <body>
@@ -106,8 +98,8 @@ if (isset($_GET['post_id'])) {
                                     </div>
                                     <div class="ml-2">
                                         <div class="h5 m-0"><a
-                                                    href="#"><?= $post_data->username ?></a></div>
-                                        <div class="h7 text-muted"><?= $worker->fullname ?></div>
+                                                    href="#"><?= $post_data['username'] ?></a></div>
+                                        <div class="h7 text-muted"><?= $worker->fullname?></div>
                                     </div>
                                 </div>
                                 <div>
@@ -128,21 +120,52 @@ if (isset($_GET['post_id'])) {
 
                         </div>
                         <div class="card-body">
-                            <div class="text-muted h7 mb-2"><i class="fa fa-clock-o"></i><?= $post_data->date ?></div>
+                            <div class="text-muted h7 mb-2"><i class="fa fa-clock-o"></i><?= $post_data['date'] ?></div>
                             <div class="text-muted h7 mb-2"><i class="fa fa-map-marker"
-                                                               aria-hidden="true"></i><?= $post_data->location ?>
+                                                               aria-hidden="true"></i><?= $post_data['location']?>
                             </div>
 
 
                             <p class="card-text">
-                                <?= $post_data->description ?>
+                                <?= $post_data['description'] ?>
                             </p>
                         </div>
 
                         <div class="card-footer">
-                            <a href="#" class="card-link collapsed"><i class="fa fa-thumbs-o-up"></i> Like</a>
 
-                            <a href="#" class="card-link collapsed" id="save"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Save</a>
+                            <!-- like dislike system -->
+                            <!-- if user likes post, style button differently -->
+
+                            <i  <?php if (userLiked($post_id)): ?>
+                                class="fa fa-thumbs-up like-btn"
+                            <?php else: ?>
+                                class="fa fa-thumbs-o-up like-btn"
+                            <?php endif ?>
+                                    data-id="<?php echo $post_id ?>"></i>
+                            <span class="likes"><?php echo getLikes($post_id); ?></span>
+                            <!-- if user dislikes post, style button differently -->
+
+                            <i
+                                <?php if (userDisliked($post_id)): ?>
+                                    class="fa fa-thumbs-down dislike-btn"
+                                <?php else: ?>
+                                    class="fa fa-thumbs-o-down dislike-btn"
+                                <?php endif ?>
+                                        data-id="<?php echo $post_id ?>"></i>
+                            <span class="dislikes"><?php echo getDislikes($post_id); ?></span>
+                            <!-- like dislike system -->
+
+                            <!-- save unsave system -->
+                            <i
+                                <?php if (isSaved($post_id)): ?>
+                                    class="fa fa-bookmark save"
+                                <?php else: ?>
+                                    class="fa fa-bookmark-o save"
+                                <?php endif ?>
+                                    data-id="<?php echo $post_id ?>">
+
+                            </i>
+                            <!-- save unsave system -->
 
                         </div>
                         <!-- comments wrapper -->
@@ -207,22 +230,7 @@ if (isset($_GET['post_id'])) {
             }
         });
     });
-    $("#save").click(function () {
 
-        $.ajax({
-            url: "savepost.php?post_id=<?=$post_id?>",
-            type: 'post',
-            success: function (response) {
-
-                if (response) {
-
-                } else {
-                    alert("Failed to save post !");
-                    return false;
-                }
-            }
-        });
-    });
     $(document).ready(function () {
         listComment();
     });
@@ -248,11 +256,9 @@ if (isset($_GET['post_id'])) {
                 $("#output").html(list);
             });
     }
+
 </script>
-<!-- Scripts -->
-<script src="jquery/jquery.min.js"></script>
-<script src="assets/js/animation.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/scripts.js"></script>
 
 </body>
 

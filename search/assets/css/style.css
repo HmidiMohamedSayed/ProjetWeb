@@ -811,6 +811,9 @@ Banner Style
   margin-bottom: 2.77rem;
 
 }
+.like-btn{
+  padding-left: 30px;
+}
 
 ::-webkit-scrollbar {
   display: none;
