@@ -1,7 +1,5 @@
 <?php
 include_once "fragments/affichagePosts.php";
-session_start();
-$_SESSION['username']="alaeddine";
 
 ?>
 
@@ -195,7 +193,7 @@ $_SESSION['username']="alaeddine";
 <script src="jquery/jquery.min.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/script.js"></script>
-
+<script src="assets/js/scripts.js"></script>
 </body>
 
 </html>

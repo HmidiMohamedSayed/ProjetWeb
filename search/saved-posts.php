@@ -1,11 +1,10 @@
-
 <?php
-include_once "fragments/affichagePosts.php" ;
+include_once "fragments/affichagePosts.php";
 
-session_start();
-$_SESSION['username']="alaeddine";
 
-$username=$_SESSION['username'];
+$_SESSION['username'] = "alaeddine";
+
+$username = $_SESSION['username'];
 
 ?>
 <!DOCTYPE html>
@@ -23,13 +22,7 @@ $username=$_SESSION['username'];
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animated.css">
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-          crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -57,7 +50,8 @@ $username=$_SESSION['username'];
 
                         <li class="scroll-to-section"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
                         </li>
-                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark" aria-hidden="true"></i>Saved</a>
+                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark"
+                                                                                   aria-hidden="true"></i>Saved</a>
                         </li>
                         <li class="scroll-to-section"><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
                         </li>
@@ -77,7 +71,7 @@ $username=$_SESSION['username'];
 </header>
 <!-- ***** Header Area End ***** -->
 <div class="main-banner wow fadeIn " id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <div class="container mt-4">
+    <div class="container mt-4">S
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
                 <div class="card p-4 mt-3">
@@ -97,6 +91,7 @@ $username=$_SESSION['username'];
 <script src="jquery/jquery.min.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/script.js"></script>
+<script src="assets/js/scripts.js"></script>
 
 </body>
 

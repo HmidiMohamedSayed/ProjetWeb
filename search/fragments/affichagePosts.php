@@ -6,6 +6,7 @@
 
 
 include_once "autoload.php";
+include "server.php";
 
 $bdd = ConnexionBD::getInstance();
 
@@ -78,8 +79,41 @@ function afficher($category)
                         </div>
 
                         <div class="card-footer">
+                            <!-- like dislike system -->
+                            <!-- if user likes post, style button differently -->
+
+                            <i  <?php if (userLiked($post->id)): ?>
+                                class="fa fa-thumbs-up like-btn"
+                            <?php else: ?>
+                                class="fa fa-thumbs-o-up like-btn"
+                            <?php endif ?>
+                                    data-id="<?php echo $post->id ?>"></i>
+                            <span class="likes"><?php echo getLikes($post->id); ?></span>
+                            <!-- if user dislikes post, style button differently -->
+
+                            <i
+                                <?php if (userDisliked($post->id)): ?>
+                                    class="fa fa-thumbs-down dislike-btn"
+                                <?php else: ?>
+                                    class="fa fa-thumbs-o-down dislike-btn"
+                                <?php endif ?>
+                                    data-id="<?php echo $post->id ?>"></i>
+                            <span class="dislikes"><?php echo getDislikes($post->id); ?></span>
+                            <!-- like dislike system -->
                             <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
+                            <!-- save unsave system -->
+                            <i
+                                <?php if (isSaved($post->id)): ?>
+                                    class="fa fa-bookmark save"
+                                <?php else: ?>
+                                    class="fa fa-bookmark-o save"
+                                <?php endif ?>
+                                    data-id="<?php echo $post->id ?>">
+
+                            </i>
+                            <!-- save unsave system -->
+
                         </div>
                     </div>
                 </div>
@@ -159,8 +193,40 @@ function afficherSavedPosts($username)
                         </div>
 
                         <div class="card-footer">
+                            <!-- like dislike system -->
+                            <!-- if user likes post, style button differently -->
+
+                            <i  <?php if (userLiked($post->id)): ?>
+                                class="fa fa-thumbs-up like-btn"
+                            <?php else: ?>
+                                class="fa fa-thumbs-o-up like-btn"
+                            <?php endif ?>
+                                    data-id="<?php echo $post->id ?>"></i>
+                            <span class="likes"><?php echo getLikes($post->id); ?></span>
+                            <!-- if user dislikes post, style button differently -->
+
+                            <i
+                                <?php if (userDisliked($post->id)): ?>
+                                    class="fa fa-thumbs-down dislike-btn"
+                                <?php else: ?>
+                                    class="fa fa-thumbs-o-down dislike-btn"
+                                <?php endif ?>
+                                    data-id="<?php echo $post->id ?>"></i>
+                            <span class="dislikes"><?php echo getDislikes($post->id); ?></span>
+                            <!-- like dislike system -->
                             <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
+                            <!-- save unsave system -->
+                            <i
+                                <?php if (isSaved($post->id)): ?>
+                                    class="fa fa-bookmark save"
+                                <?php else: ?>
+                                    class="fa fa-bookmark-o save"
+                                <?php endif ?>
+                                    data-id="<?php echo $post->id ?>">
+
+                            </i>
+                            <!-- save unsave system -->
                         </div>
                     </div>
                 </div>
