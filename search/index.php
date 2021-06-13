@@ -1,7 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['username']) ){
+    header("location:../authentification/login.php");
+}
 include_once "fragments/affichagePosts.php";
-
 ?>
 
 <!DOCTYPE html>

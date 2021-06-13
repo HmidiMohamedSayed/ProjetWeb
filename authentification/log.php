@@ -44,6 +44,7 @@ else{
         header("location:Login.php");
     }
     if($bool==true){
-        echo "Login Succeded";
+$_SESSION['username']=$username;
+        header("location:../search/index.php");
     }
 }

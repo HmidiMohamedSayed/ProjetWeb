@@ -3,8 +3,6 @@
 $conn = mysqli_connect('localhost', 'root', '', 'dbproject');
 // assuming a user is logged in with id $username
 
-session_start();
-$_SESSION['username']="alaeddine";
 $username = $_SESSION['username'];
 
 if (!$conn) {

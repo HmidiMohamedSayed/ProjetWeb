@@ -1,8 +1,7 @@
 <?php
+session_start();
+
 include_once "fragments/affichagePosts.php";
-
-
-$_SESSION['username'] = "alaeddine";
 
 $username = $_SESSION['username'];
 

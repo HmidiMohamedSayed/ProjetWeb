@@ -1,9 +1,8 @@
 <?php
+session_start();
 
 include_once 'fragments/autoload.php';
 include_once 'fragments/server.php';
-session_start();
-$_SESSION['username'] = "alaeddine";
 
 
 if (isset($_GET['post_id'])) {
