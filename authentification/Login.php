@@ -36,7 +36,7 @@ session_start();
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-<div id="about" class="about-us section">
+<div id="login" class="login section">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">

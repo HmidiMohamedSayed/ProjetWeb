@@ -828,11 +828,11 @@ Login Style
 ---------------------------------------------
 */
 
-#about {
+#login {
   margin-top: 120px;
 }
 
-.about-us {
+.login {
   background-image: url(../images/about-bg.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -840,30 +840,30 @@ Login Style
   padding: 140px 0px 120px 0px;
 }
 
-.about-us .left-image {
+.login .left-image {
   margin-right: 45px;
 }
 
-.about-us .services .item {
+.login .services .item {
   margin-bottom: 30px;
 }
 
-.about-us .services .item .icon {
+.login .services .item .icon {
   float: left;
   margin-right: 25px;
 }
 
-.about-us .services .item .icon img {
+.login .services .item .icon img {
   max-width: 70px;
 }
 
-.about-us .services .item h4 {
+.login .services .item h4 {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.about-us .services .item p {
+.login .services .item p {
   color: #fff;
 }

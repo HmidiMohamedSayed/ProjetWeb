@@ -5,37 +5,14 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
-body{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}
-.container{
-  max-width: 700px;
-  width: 100%;
-  background-color: #fff;
-  padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-}
+
+
 .container .title{
   font-size: 25px;
   font-weight: 500;
   position: relative;
 }
-.container .title::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 30px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}
+
 .content form .user-details{
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +72,7 @@ form .input-box span.details span.user-type{
  #dot-3:checked ~ .category label .three,
  #dot-4:checked ~ .category label .four,
  #dot-5:checked ~ .category label .five{
-   background: #9b59b6;
+   background: #cd1313;
    border-color: #d9d9d9;
  }
  form input[type="radio"]{
@@ -103,7 +80,7 @@ form .input-box span.details span.user-type{
  }
  form .button{
    height: 45px;
-   margin: 35px 0
+    width: 120px ;
  }
  form .button input{
    height: 100%;
@@ -116,7 +93,7 @@ form .input-box span.details span.user-type{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+   background: linear-gradient(135deg, #ff8686, #f30000);
  }
  form .button input:hover{
   /* transform: scale(0.99); */
