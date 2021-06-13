@@ -1,35 +1,27 @@
 <?php
 
 
-
 /*--------------------------------*/
 
-
 include_once "autoload.php";
-include "server.php";
+include_once 'server.php';
 
 $bdd = ConnexionBD::getInstance();
 
 $repository1 = new Repository("posts");
-
-
 $repository2 = new Repository("worker");
-
 $repository3 = new Repository("saved_posts");
+
 function afficher($category)
 {
     global $repository1;
     global $repository2;
 
-
     $posts = $repository1->findByCategory($category);
 
-
     foreach ($posts
-
              as $post) {
-  $worker = $repository2->findByUsername($post->username);
-
+        $worker = $repository2->findByUsername($post->username);
         ?>
 
         <div class="container-fluid gedf-wrapper">
@@ -82,7 +74,7 @@ function afficher($category)
                             <!-- like dislike system -->
                             <!-- if user likes post, style button differently -->
 
-                            <i  <?php if (userLiked($post->id)): ?>
+                            <i <?php if (userLiked($post->id)): ?>
                                 class="fa fa-thumbs-up like-btn"
                             <?php else: ?>
                                 class="fa fa-thumbs-o-up like-btn"
@@ -100,7 +92,7 @@ function afficher($category)
                                     data-id="<?php echo $post->id ?>"></i>
                             <span class="dislikes"><?php echo getDislikes($post->id); ?></span>
                             <!-- like dislike system -->
-                            <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
+                            <a href="view-post.php?post_id=<?= $post->id ?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
                             <!-- save unsave system -->
                             <i
@@ -121,12 +113,10 @@ function afficher($category)
             </div>
         </div>
 
-
         <?php
     }
 
 }
-
 
 function afficherSavedPosts($username)
 {
@@ -136,14 +126,11 @@ function afficherSavedPosts($username)
 
     $saved_posts = $repository3->findAllByUsername($username);
 
-
     foreach ($saved_posts
-
              as $saved_post) {
 
-        $post=$repository1->findById($saved_post->post_id);
+        $post = $repository1->findById($saved_post->post_id);
         $worker = $repository2->findByUsername($post->username);
-
         ?>
 
         <div class="container-fluid gedf-wrapper">
@@ -196,7 +183,7 @@ function afficherSavedPosts($username)
                             <!-- like dislike system -->
                             <!-- if user likes post, style button differently -->
 
-                            <i  <?php if (userLiked($post->id)): ?>
+                            <i <?php if (userLiked($post->id)): ?>
                                 class="fa fa-thumbs-up like-btn"
                             <?php else: ?>
                                 class="fa fa-thumbs-o-up like-btn"
@@ -214,7 +201,7 @@ function afficherSavedPosts($username)
                                     data-id="<?php echo $post->id ?>"></i>
                             <span class="dislikes"><?php echo getDislikes($post->id); ?></span>
                             <!-- like dislike system -->
-                            <a href="view-post.php?post_id=<?=$post->id?>" class="card-link collapsed"><i
+                            <a href="view-post.php?post_id=<?= $post->id ?>" class="card-link collapsed"><i
                                         class="fa fa-commenting-o"></i> Show comments</a>
                             <!-- save unsave system -->
                             <i

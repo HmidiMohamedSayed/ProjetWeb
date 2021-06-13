@@ -1,9 +1,9 @@
 <?php
 
 include_once 'fragments/autoload.php';
-include('server.php');
+include_once 'fragments/server.php';
 session_start();
-$_SESSION['username']="alaeddine";
+$_SESSION['username'] = "alaeddine";
 
 
 if (isset($_GET['post_id'])) {
@@ -24,12 +24,11 @@ if (isset($_GET['post_id'])) {
 
 $post_id = $_GET['post_id'];
 ?>
-
 <!doctype html>
 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -43,8 +42,8 @@ $post_id = $_GET['post_id'];
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animated.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 </head>
 <body>
@@ -61,10 +60,10 @@ $post_id = $_GET['post_id'];
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-
                         <li class="scroll-to-section"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
                         </li>
-                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark" aria-hidden="true"></i>Saved</a>
+                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark"
+                                                                                   aria-hidden="true"></i>Saved</a>
                         </li>
                         <li class="scroll-to-section"><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
                         </li>
@@ -99,7 +98,7 @@ $post_id = $_GET['post_id'];
                                     <div class="ml-2">
                                         <div class="h5 m-0"><a
                                                     href="#"><?= $post_data['username'] ?></a></div>
-                                        <div class="h7 text-muted"><?= $worker->fullname?></div>
+                                        <div class="h7 text-muted"><?= $worker->fullname ?></div>
                                     </div>
                                 </div>
                                 <div>
@@ -122,7 +121,7 @@ $post_id = $_GET['post_id'];
                         <div class="card-body">
                             <div class="text-muted h7 mb-2"><i class="fa fa-clock-o"></i><?= $post_data['date'] ?></div>
                             <div class="text-muted h7 mb-2"><i class="fa fa-map-marker"
-                                                               aria-hidden="true"></i><?= $post_data['location']?>
+                                                               aria-hidden="true"></i><?= $post_data['location'] ?>
                             </div>
 
 
@@ -136,7 +135,7 @@ $post_id = $_GET['post_id'];
                             <!-- like dislike system -->
                             <!-- if user likes post, style button differently -->
 
-                            <i  <?php if (userLiked($post_id)): ?>
+                            <i <?php if (userLiked($post_id)): ?>
                                 class="fa fa-thumbs-up like-btn"
                             <?php else: ?>
                                 class="fa fa-thumbs-o-up like-btn"
@@ -151,7 +150,7 @@ $post_id = $_GET['post_id'];
                                 <?php else: ?>
                                     class="fa fa-thumbs-o-down dislike-btn"
                                 <?php endif ?>
-                                        data-id="<?php echo $post_id ?>"></i>
+                                    data-id="<?php echo $post_id ?>"></i>
                             <span class="dislikes"><?php echo getDislikes($post_id); ?></span>
                             <!-- like dislike system -->
 
@@ -176,7 +175,9 @@ $post_id = $_GET['post_id'];
                         <!-- add comments -->
                         <div class="bg-light p-2">
                             <form id="frm-comment">
-                                <div class="d-flex flex-row align-items-start"><div class='p-3'><img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt=""></div>
+                                <div class="d-flex flex-row align-items-start">
+                                    <div class='p-3'><img class="rounded-circle" width="45"
+                                                          src="https://picsum.photos/50/50" alt=""></div>
                                     <label for="comment"></label><textarea
                                             class="form-control ml-1 shadow-none textarea" name="comment" id="comment"
                                             placeholder="Write your comment here..." required></textarea>
@@ -259,7 +260,6 @@ $post_id = $_GET['post_id'];
 
 </script>
 <script src="assets/js/scripts.js"></script>
-
 </body>
 
 </html>

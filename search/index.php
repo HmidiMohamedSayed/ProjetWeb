@@ -1,20 +1,16 @@
 <?php
+
 include_once "fragments/affichagePosts.php";
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-
 
     <title>Find Service</title>
 
@@ -27,12 +23,7 @@ include_once "fragments/affichagePosts.php";
     <link rel="stylesheet" href="assets/css/animated.css">
 
 
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-          crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 
 <body>
@@ -50,9 +41,12 @@ include_once "fragments/affichagePosts.php";
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
 
-                        <li class="scroll-to-section"><a href="#home"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
-                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark" aria-hidden="true"></i>Saved</a></li>
-                        <li class="scroll-to-section"><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
+                        <li class="scroll-to-section"><a href="#home"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                        </li>
+                        <li class="scroll-to-section"><a href="saved-posts.php"><i class="fa fa-bookmark"
+                                                                                   aria-hidden="true"></i>Saved</a></li>
+                        <li class="scroll-to-section"><a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
+                        </li>
 
                         <li class="scroll-to-section">
                             <div class="main-red-button"><a href="#logout">Log Out</a></div>
@@ -128,19 +122,22 @@ include_once "fragments/affichagePosts.php";
 
                         </div>
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade" id="pills-Cleaning" role="tabpanel" aria-labelledby="pills-Cleaning-tab">
+                            <div class="tab-pane fade" id="pills-Cleaning" role="tabpanel"
+                                 aria-labelledby="pills-Cleaning-tab">
                                 <?php
 
                                 afficher("Cleaning");
                                 ?>
 
                             </div>
-                            <div class="tab-pane fade" id="pills-Cooking" role="tabpanel" aria-labelledby="pills-Cooking-tab">
+                            <div class="tab-pane fade" id="pills-Cooking" role="tabpanel"
+                                 aria-labelledby="pills-Cooking-tab">
                                 <?php
                                 afficher("Cooking");
                                 ?>
                             </div>
-                            <div class="tab-pane fade" id="pills-Moving" role="tabpanel" aria-labelledby="pills-Moving-tab">
+                            <div class="tab-pane fade" id="pills-Moving" role="tabpanel"
+                                 aria-labelledby="pills-Moving-tab">
                                 <?php
                                 afficher("Moving");
                                 ?>
@@ -164,13 +161,15 @@ include_once "fragments/affichagePosts.php";
                                 afficher("TVandElectronics");
                                 ?>
                             </div>
-                            <div class="tab-pane fade" id="pills-Painting" role="tabpanel" aria-labelledby="pills-Painting-tab">
+                            <div class="tab-pane fade" id="pills-Painting" role="tabpanel"
+                                 aria-labelledby="pills-Painting-tab">
 
                                 <?php
                                 afficher("Painting");
                                 ?>
                             </div>
-                            <div class="tab-pane fade" id="pills-Plumbing" role="tabpanel" aria-labelledby="pills-Plumbing-tab">
+                            <div class="tab-pane fade" id="pills-Plumbing" role="tabpanel"
+                                 aria-labelledby="pills-Plumbing-tab">
 
                                 <?php
                                 afficher("Plumbing");
@@ -190,10 +189,12 @@ include_once "fragments/affichagePosts.php";
     </div>
 </div>
 <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/scripts.js"></script>
 <script src="jquery/jquery.min.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/script.js"></script>
-<script src="assets/js/scripts.js"></script>
 </body>
 
 </html>
