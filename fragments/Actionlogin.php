@@ -3,11 +3,16 @@ session_start();
 include_once 'autoload.php';
 $repow=new Repository('worker');
 $repoc=new Repository('client');
+$repoa=new Repository('admin');
 $username=$_POST['username'];
+$admins=$repoa->findByUsername($username);
 $_SESSION['username']=$username;
 $worker=$repow->findByUsername($username);
 $client=$repoc->findByUsername($username);
-if($worker==null) {
+if($admins){
+    header("location:../admin/index.php");
+}
+elseif($worker==null) {
     if ($client==null){
         $_SESSION['notfoundusername']="Username Not Found Please Verify Your Credentials";
         header("location:Login.php");

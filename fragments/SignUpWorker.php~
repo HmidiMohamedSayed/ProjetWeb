@@ -45,7 +45,7 @@
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" name="phone" >
+            <input type="text" placeholder="Enter your number" name="phone" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
