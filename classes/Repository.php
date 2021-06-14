@@ -22,7 +22,7 @@ class Repository
         $request = "select * from " . $this->tableName;
         $response = $this->bd->prepare($request);
         $response->execute([]);
-        return $response->fetchAll(PDO::FETCH_OBJ);
+        return $response->fetchAll();
     }
 
     public function findById($id)
@@ -35,7 +35,7 @@ class Repository
     public function findAllPosts()
     {   
         $response = $this->bd->query("select * from " . $this->tableName );
-        return $response;
+        return $response->fetchAll();
     }
     public function findPosts($username){
       $request= "select * from ". $this->tableName . " where username = ?";
@@ -104,7 +104,7 @@ class Repository
     }
     public function findMessageByUsername($username)
     {
-        $request = "select * from " . $this->tableName . " where destination = ?";
+        $request = "select * from " . $this->tableName . " where destination = ? and lu=0 ORDER BY date DESC";
         $response = $this->bd->prepare($request);
         $response->execute([$username]);
         return $response;
@@ -129,6 +129,18 @@ class Repository
         $request = "INSERT INTO " . $this->tableName . " (source,destination,content,date) VALUES(?,?,?,?)";
         $response = $this->bd->prepare($request);
         $response->execute([$source,$destination,$content,$currentdsatetime]);
-        // return $response->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function makeLu($source,$destination,$content){
+
+        $request="update ".$this->tableName . " set lu=1 where source=? and destination=? and content= ?";
+    $response=$this->bd->prepare($request);
+    $response->execute([$source,$destination,$content]);
+    }
+    public function findMessageBySourceDestination($source,$destination)
+    {
+        $request = "select * from " . $this->tableName . " where source= ? and destination = ? and lu=0";
+        $response = $this->bd->prepare($request);
+        $response->execute([$source,$destination]);
+        return $response;
     }
 }
